@@ -8,8 +8,8 @@ envs:
 flows:
   master:
     - parallel:
-      - (on centos, noWorkspace) sleep 10
-      - (on centos, noWorkspace) sleep 10
+      - (on centos, noScmSync) sleep 10
+      - (on centos, noScmSync) sleep 10
     - ws_snapshot: main
       excludes: target/**
     - parallel:
@@ -17,6 +17,6 @@ flows:
         - ws_restore: main
         - echo ${test}
         - mvn clean package -B
-      - (on centos, noWorkspace) sleep 10
+      - (on centos, noScmSync) sleep 10
   pr:
     - echo bla
