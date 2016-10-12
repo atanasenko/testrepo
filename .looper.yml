@@ -2,17 +2,21 @@ flows:
   master:
     - ws_snapshot: snap
     - parallel:
-      - call: good
+      - call: good1
       - call: bad
-      - call: good
-  good:
+      - call: good2
+  good1:
     - (on centos, exclusive):
       - ws_restore: snap
-      - sleep 10
+      - (name good1) sleep 12
       
+  good2:
+    - (on centos, exclusive):
+      - ws_restore: snap
+      - (name good2) sleep 10
   bad:
     - (on centos, exclusive):
       - ws_restore: snap
-      - sleep 9 && exit 1
+      - (name bad1) sleep 9 && exit 1
   pr:
     - echo bla
