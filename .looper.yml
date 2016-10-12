@@ -1,22 +1,9 @@
-tools:
-  maven: 3.3.9
-  jdk: 1.8.0_102-b14
-envs:
-  global:
-    variables:
-      test: Hello random %{(Math.abs(new(java.util.Random).nextInt()) % 100000000 + 1)}
 flows:
   master:
     - parallel:
-      - (on centos, noScmSync) sleep 10
-      - (on centos, noScmSync) sleep 10
-    - ws_snapshot: main
-      excludes: target/**
-    - parallel:
-      - (on centos, exclusive):
-        - ws_restore: main
-        - echo ${test}
-        - mvn clean package -B
-      - (on centos, noScmSync) sleep 10
+      - (on centos) sleep 10
+      - (on centos) sleep 10
+         exit 1
+      - (on centos) sleep 10
   pr:
     - echo bla
