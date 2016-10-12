@@ -2,9 +2,9 @@ flows:
   master:
     - ws_snapshot: snap
     - parallel:
-      - call good
-      - call bad
-      - call good
+      - call: good
+      - call: bad
+      - call: good
   good:
     - (on centos, exclusive):
       - ws_restore: snap
