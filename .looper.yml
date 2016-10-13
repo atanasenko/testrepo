@@ -1,28 +1,34 @@
+envs:
+  global:
+    - variables:
+      - cmd: sleep 10
+      - snap: snap
+  good1:
+    - variables:
+      - name: good1
+  good2:
+    - variables:
+      - name: good2
+  bad:
+    - variables:
+      - name: bad
+      - cmd: sleep 10 && exit1
 flows:
   master:
-    - ws_snapshot: snap
+    - ws_snapshot: "%{snap}"
     - parallel:
-      - call: good1
-      - call: bad
-      - call: good2
+      - call: gen(good1)
+      - call: gen(bad)
+      - call: gen(good2)
       - call: good3
-  good1:
+  gen:
     - (on centos, exclusive):
-      - ws_restore: snap
-      - (name good1) sleep 12
-      
-  good2:
-    - (on centos, exclusive):
-      - ws_restore: snap
-      - (name good2) sleep 10
+      - ws_restore(name restore %{name}): "%{snap}"
+      - (name %{name}) %{cmd}
   good3:
     - (on centos, exclusive):
-      - ws_restore: snap
-      - (name good3) sleep 10
-      - (name good3_1) sleep 10
-  bad:
-    - (on centos, exclusive):
-      - ws_restore: snap
-      - (name bad1) sleep 9 && exit 1
+      - ws_restore(name restore good3): "%{snap}"
+      - (name good3) %{cmd}
+      - (name good3_1) %{cmd}
   pr:
     - echo bla
