@@ -19,6 +19,7 @@ flows:
     - (on centos, exclusive):
       - ws_restore: snap
       - (name good3) sleep 10
+      - (name good3_1) sleep 10
   bad:
     - (on centos, exclusive):
       - ws_restore: snap
