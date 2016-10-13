@@ -5,6 +5,7 @@ flows:
       - call: good1
       - call: bad
       - call: good2
+      - call: good3
   good1:
     - (on centos, exclusive):
       - ws_restore: snap
@@ -14,6 +15,10 @@ flows:
     - (on centos, exclusive):
       - ws_restore: snap
       - (name good2) sleep 10
+  good3:
+    - (on centos, exclusive):
+      - ws_restore: snap
+      - (name good3) sleep 10
   bad:
     - (on centos, exclusive):
       - ws_restore: snap
