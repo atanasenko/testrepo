@@ -1,16 +1,16 @@
 envs:
   global:
-    - variables:
+    variables:
       - cmd: sleep 10
       - snap: snap
   good1:
-    - variables:
+    variables:
       - name: good1
   good2:
-    - variables:
+    variables:
       - name: good2
   bad:
-    - variables:
+    variables:
       - name: bad
       - cmd: sleep 10 && exit1
 flows:
