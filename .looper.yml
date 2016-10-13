@@ -1,18 +1,18 @@
 envs:
   global:
     variables:
-      - cmd: sleep 10
-      - snap: snap
+      cmd: sleep 10
+      snap: snap
   good1:
     variables:
-      - name: good1
+      name: good1
   good2:
     variables:
-      - name: good2
+      name: good2
   bad:
     variables:
-      - name: bad
-      - cmd: sleep 10 && exit1
+      name: bad
+      cmd: sleep 10 && exit1
 flows:
   master:
     - ws_snapshot: "%{snap}"
