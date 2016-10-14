@@ -27,7 +27,7 @@ flows:
           - ws_restore(name restore %{name}): "%{snap}"
           - (name %{name}) %{cmd}
         finally:
-          (name cleanup %{name}) echo "cleaning it up!" && sleep 5
+          (name cleanup %{name}) echo "cleaning it up!" && sleep 5 && echo "done!"
   good3:
     - (on centos, exclusive):
       - ws_restore(name restore good3): "%{snap}"
