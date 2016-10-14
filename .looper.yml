@@ -14,12 +14,12 @@ envs:
       name: bad
       cmd: sleep 10 && exit1
 flows:
-  master:
+  masters:
     - try:
         exit 1
       finally:
         echo "finally"
-  masters:
+  master:
     - ws_snapshot: "%{snap}"
     - parallel:
       - call: gen(good1)
