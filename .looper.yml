@@ -23,11 +23,11 @@ flows:
       - call: good3
   gen:
     - (on centos, exclusive):
-      try:
-        - ws_restore(name restore %{name}): "%{snap}"
-        - (name %{name}) %{cmd}
-      finally:
-        (name cleanup %{name}) echo "cleaning it up!" && sleep 5
+        try:
+          - ws_restore(name restore %{name}): "%{snap}"
+          - (name %{name}) %{cmd}
+        finally:
+          (name cleanup %{name}) echo "cleaning it up!" && sleep 5
   good3:
     - (on centos, exclusive):
       - ws_restore(name restore good3): "%{snap}"
