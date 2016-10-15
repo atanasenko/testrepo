@@ -12,13 +12,8 @@ envs:
   bad:
     variables:
       name: bad
-      cmd: sleep 10 && exit1
+      cmd: sleep 10 && exit 0
 flows:
-  masters:
-    - try:
-        exit 1
-      finally:
-        echo "finally"
   master:
     - ws_snapshot: "%{snap}"
     - parallel:
