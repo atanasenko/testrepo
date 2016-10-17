@@ -30,7 +30,8 @@ flows:
   master:
     call: android_test
   android_test:
-    find "$ANDROID_SDK_HOME" -printf "%P\n"
+    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+    - find "$ANDROID_SDK_HOME" -printf "%P\n"
   
   parallel_test:
     - ws_snapshot: "%{snap}"
