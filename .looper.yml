@@ -13,8 +13,26 @@ envs:
     variables:
       name: bad
       cmd: sleep 10 && exit 0
+tools:
+  android:
+    - tools
+    - platform-tools
+    - android-19
+    - android-22
+    - android-23
+    - build-tools-22.0.0
+    - build-tools-22.0.1
+    - build-tools-21.1.2
+    - build-tools-23.0.1
+    - sys-img-armeabi-v7a-android-22
+    - extra-android-m2repository
 flows:
   master:
+    call: android_test
+  android_test:
+    find $ANDROID_HOME -printf "%P\n"
+  
+  parallel_test:
     - ws_snapshot: "%{snap}"
     - parallel:
       - call: gen(good1)
