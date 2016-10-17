@@ -30,7 +30,7 @@ flows:
   master:
     call: android_test
   android_test:
-    find $ANDROID_HOME -printf "%P\n"
+    find "$ANDROID_SDK_HOME" -printf "%P\n"
   
   parallel_test:
     - ws_snapshot: "%{snap}"
