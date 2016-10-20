@@ -3,6 +3,7 @@ envs:
     variables:
       cmd: sleep 10
       snap: snap
+      REPO_DIR: ${WORKSPACE}
   good1:
     variables:
       name: good1
@@ -29,7 +30,8 @@ tools:
     - extra-android-m2repository
 flows:
   master:
-    call: android_test
+    - env
+    - call: android_test
   android_test:
     - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
     - find "$ANDROID_SDK_HOME" -printf "%P\n"
