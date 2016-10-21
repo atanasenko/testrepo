@@ -16,22 +16,10 @@ envs:
       cmd: sleep 10 && exit 0
 tools:
   jdk: 8u102-b14
-  android:
-    - tools
-    - platform-tools
-    - android-19
-    - android-22
-    - android-23
-    - build-tools-22.0.0
-    - build-tools-22.0.1
-    - build-tools-21.1.2
-    - build-tools-23.0.1
-    - sys-img-armeabi-v7a-android-22
-    - extra-android-m2repository
 flows:
   master:
     - env
-    - call: android_test
+    - call: parallel_test
   android_test:
     - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
     - find "$ANDROID_SDK_HOME" -printf "%P\n"
