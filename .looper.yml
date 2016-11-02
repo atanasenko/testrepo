@@ -18,6 +18,8 @@ tools:
   jdk: 8u102-b14
 flows:
   master:
+    - exit 123
+  master0:
     - env
     - call: parallel_test
   android_test:
