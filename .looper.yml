@@ -18,9 +18,6 @@ tools:
   jdk: 8u102-b14
 flows:
   master:
-    try: exit 1
-    finally: echo cleanup
-  master0:
     - env
     - call: parallel_test
   android_test:
