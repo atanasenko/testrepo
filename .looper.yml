@@ -1,50 +1,26 @@
 envs:
-  global:
+  good:
     variables:
-      cmd: sleep 10
-      snap: snap
-      REPO_DIR: ${WORKSPACE}
-  good1:
-    variables:
-      name: good1
-  good2:
-    variables:
-      name: good2
+      name: good
+      code: 0
+      time: 3
   bad:
     variables:
       name: bad
-      cmd: sleep 10 && exit 1
-tools:
-  jdk: 8u102-b14
+      code: 1
+      time: 1
+  end:
+    variables:
+      name: end
+      code: 0
+      time: 2
 flows:
   master:
-    try: exit 1
-    finally: echo cleanup
-  master0:
-    - env
-    - call: parallel_test
-  android_test:
-    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-    - find "$ANDROID_SDK_HOME" -printf "%P\n"
-  
-  parallel_test:
-    - ws_snapshot: "%{snap}"
     - parallel:
-      - call: gen(good1)
-      - call: gen(bad)
-      - call: gen(good2)
-      - call: good3
-  gen:
-    - (on centos, exclusive):
-        try:
-          - ws_restore(name restore %{name}): "%{snap}"
-          - (name %{name}) %{cmd}
-        finally:
-          (name cleanup %{name}) echo "cleaning it up!" && sleep 5 && echo "done!"
-  good3:
-    - (on centos, exclusive):
-      - ws_restore(name restore good3): "%{snap}"
-      - (name good3) %{cmd}
-      - (name good3_1) %{cmd}
-  pr:
-    - echo bla
+      - call: sub(good)
+      - call: sub(bad)
+    - call: sub(end)
+  sub:
+    (on test):
+      try: (name %{name}) echo "%{name}" && sleep %{time} && exit %{code}
+      finally: (name %{name} cleanup) echo "cleanup %{name}"
