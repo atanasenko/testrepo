@@ -7,7 +7,7 @@ envs:
   bad:
     variables:
       name: bad
-      code: 1
+      code: 0
       time: 1
   end:
     variables:
