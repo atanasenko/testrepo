@@ -1,3 +1,5 @@
+tools:
+  jdk: 8u111
 envs:
   good:
     variables:
