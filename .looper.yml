@@ -18,6 +18,8 @@ envs:
       time: 2
 flows:
   master:
+    echo 'test'
+  master0:
     - parallel:
       - call: sub(good)
       - call: sub(bad)
