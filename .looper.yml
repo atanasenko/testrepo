@@ -18,7 +18,16 @@ envs:
       time: 2
 flows:
   master:
-    echo 'test'
+    - parallel:
+      - call: par1
+      - call: par1
+  par1:
+    - parallel:
+      - call: par2
+      - call: par2
+  par2:
+    - (on centos): echo Hello!
+
   master0:
     - parallel:
       - call: sub(good)
