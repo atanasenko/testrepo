@@ -1,39 +1,7 @@
-tools:
-  jdk: 8u111
-envs:
-  good:
-    variables:
-      name: good
-      code: 0
-      time: 3
-  bad:
-    variables:
-      name: bad
-      code: 0
-      time: 1
-  end:
-    variables:
-      name: end
-      code: 0
-      time: 2
 flows:
   master:
-    - parallel:
-      - call: par1
-      - call: par1
-  par1:
-    - parallel:
-      - call: par2
-      - call: par2
-  par2:
-    - (on centos): echo Hello!
-
-  master0:
-    - parallel:
-      - call: sub(good)
-      - call: sub(bad)
-    - call: sub(end)
-  sub:
-    (on centos):
-      try: (name %{name}) echo "%{name}" && sleep %{time} && exit %{code}
-      finally: (name %{name} cleanup) echo "cleanup %{name}"
+    - echo foo
+    - savepoint
+    - echo bar
+    - savepoint
+    - echo foobar
