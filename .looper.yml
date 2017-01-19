@@ -1,3 +1,4 @@
+cron: "*/5 * * * *"
 flows:
   master:
     - echo foo
