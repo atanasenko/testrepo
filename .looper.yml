@@ -1,4 +1,4 @@
-cron: "*/5 * * * *"
+cron: H/5 * * * *
 flows:
   master:
     - echo foo
