@@ -1,4 +1,6 @@
-cron: H/5 * * * *
+triggers:
+- cron: H/5 * * * *
+  call: other
 flows:
   master:
     - echo foo
@@ -6,3 +8,5 @@ flows:
     - echo bar
     - savepoint
     - echo foobar
+  other:
+    - echo other
