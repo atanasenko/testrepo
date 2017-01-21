@@ -1,6 +1,7 @@
 triggers:
-- cron: H/5 * * * *
-  call: other
+- cron:
+    spec: H/5 * * * *
+    call: other
 flows:
   master:
     - echo foo
