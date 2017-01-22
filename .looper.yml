@@ -1,6 +1,5 @@
 triggers:
-  cron: H/2 * * * *
-  push: disabled
+  pr: disable
 flows:
   master:
     - echo foo
