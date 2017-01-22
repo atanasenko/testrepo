@@ -2,6 +2,7 @@ triggers:
 - cron:
     spec: H/5 * * * *
     call: other
+- push: disabled
 flows:
   master:
     - echo foo
