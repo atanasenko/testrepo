@@ -1,4 +1,5 @@
 triggers:
+  push: disabled
   pr: disable
 flows:
   master:
