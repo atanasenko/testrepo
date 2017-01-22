@@ -1,8 +1,9 @@
 triggers:
-- cron:
+  cron:
     spec: H/5 * * * *
     call: other
-- push: disabled
+  push: disabled
+  pr: disabled
 flows:
   master:
     - echo foo
