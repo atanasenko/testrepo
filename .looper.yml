@@ -1,12 +1,14 @@
 triggers:
   push: disabled
   pr: disable
+
+tools:
+  maven: 3.3.9
+
 flows:
   master:
-    - echo foo
-    - savepoint
-    - echo bar
-    - savepoint
-    - echo foobar
-  other:
-    - echo other
+    withSonarQubeEnv:
+      args:
+        installationName: sonar.qa
+      body:
+        mvn $SONAR_MAVEN_GOAL
