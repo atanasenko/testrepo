@@ -11,4 +11,4 @@ flows:
       args:
         installationName: sonar.qa
       body:
-        mvn $SONAR_MAVEN_GOAL
+        mvn $SONAR_MAVEN_GOAL -B
