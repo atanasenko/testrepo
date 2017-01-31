@@ -7,8 +7,5 @@ tools:
 
 flows:
   master:
-    withSonarQubeEnv:
-      args:
-        installationName: sonar.qa
-      body:
-        mvn $SONAR_MAVEN_GOAL -B
+    withSonarQubeEnv(sonar.qa):
+      mvn $SONAR_MAVEN_GOAL -B
