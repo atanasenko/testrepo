@@ -7,5 +7,5 @@ tools:
 
 flows:
   master:
-    withSonarQubeEnv(sonar.qa):
+    sonar:
       mvn $SONAR_MAVEN_GOAL -B
