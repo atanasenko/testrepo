@@ -7,5 +7,4 @@ tools:
 
 flows:
   master:
-    sonar:
-      mvn $SONAR_MAVEN_GOAL -B
+    echo abc
