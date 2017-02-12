@@ -7,4 +7,5 @@ tools:
 
 flows:
   master:
-    mvn help:effective-settings
+  - env
+  - mvn help:effective-settings
