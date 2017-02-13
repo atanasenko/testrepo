@@ -10,5 +10,5 @@ flows:
   - |
     env
     ls -la $MAVEN_HOME/bin
-    which mvn
+    echo MVN IS `which mvn`
     mvn help:effective-settings
