@@ -6,11 +6,37 @@ tools:
   maven: 3.3.9
   ant: 1.9.7
 
+envs:
+  good:
+    variables:
+      name: good
+      code: 0
+      time: 3
+  bad:
+    variables:
+      name: bad
+      code: 1
+      time: 1
+  end:
+    variables:
+      name: end
+      code: 0
+      time: 2
 flows:
-  master:
+  - master0:
   - (on centos):
     - |
       env
       ls -la $MAVEN_HOME/bin
       echo MVN IS `which mvn`
       mvn help:effective-settings
+
+  - master:
+    - parallel:
+      - call: sub(good)
+      - call: sub(bad)
+    - call: sub(end)
+  - sub:
+    (on test):
+      try: (name %{name}) echo "%{name}" && sleep %{time} && exit %{code}
+      finally: (name %{name} cleanup) echo "cleanup %{name}"
