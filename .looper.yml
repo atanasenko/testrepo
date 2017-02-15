@@ -24,12 +24,12 @@ envs:
       time: 2
 flows:
   - master0:
-  - (on centos):
-    - |
-      env
-      ls -la $MAVEN_HOME/bin
-      echo MVN IS `which mvn`
-      mvn help:effective-settings
+    - (on centos):
+      - |
+        env
+        ls -la $MAVEN_HOME/bin
+        echo MVN IS `which mvn`
+        mvn help:effective-settings
 
   - master:
     - parallel:
