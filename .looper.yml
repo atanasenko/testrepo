@@ -11,7 +11,7 @@ envs:
     variables:
       name: good
       code: 0
-      time: 3
+      time: 10
   bad:
     variables:
       name: bad
@@ -21,7 +21,7 @@ envs:
     variables:
       name: end
       code: 0
-      time: 2
+      time: 5
 flows:
   master0:
   - (on centos):
