@@ -37,6 +37,6 @@ flows:
     - call: sub(bad)
   - call: sub(end)
   sub:
-    (on test):
+    (on centos):
       try: (name %{name}) echo "%{name}" && sleep %{time} && exit %{code}
       finally: (name %{name} cleanup) echo "cleanup %{name}"
