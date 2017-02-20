@@ -1,27 +1,10 @@
 triggers:
-  push: disabled
   pr: disable
 
 tools:
   maven: 3.3.9
   ant: 1.9.7
 
-envs:
-  good:
-    variables:
-      name: good
-      code: 0
-      time: 10
-  bad:
-    variables:
-      name: bad
-      code: 1
-      time: 1
-  end:
-    variables:
-      name: end
-      code: 0
-      time: 5
 flows:
   master0:
   - (on centos):
@@ -33,10 +16,10 @@ flows:
 
   master:
   - parallel:
-    - call: sub(good)
-    - call: sub(bad)
-  - call: sub(end)
-  sub:
-    (on centos):
-      try: (name %{name}) echo "%{name}" && sleep %{time} && exit %{code}
-      finally: (name %{name} cleanup) echo "cleanup %{name}"
+    - (on centos):
+      - (name task1) sleep 2
+      - (name task2) sleep 2
+    - (on centos):
+      - (name task3) sleep 2
+      - (name task4) sleep 2
+
