@@ -27,8 +27,8 @@ flows:
       mvn help:effective-settings
 
   master:
-  - (on centos):
-    - call: foo(f1)
+  - call: foo(f1)
+  - (name foos):
     - call: foo(f2)
     - call: foo(f3)
   
