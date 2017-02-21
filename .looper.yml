@@ -16,4 +16,6 @@ flows:
       mvn help:effective-settings
 
   master:
-  - sleep 2
+  - (name foo):
+    - sleep 2
+    - sleep 4
