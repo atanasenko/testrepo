@@ -16,11 +16,4 @@ flows:
       mvn help:effective-settings
 
   master:
-  - parallel:
-    - (on centos):
-      - (name task1) sleep 2
-      - (name task2) sleep 2
-    - (on centos):
-      - (name task3) sleep 2
-      - (name task4) sleep 2
-
+  - sleep 2
