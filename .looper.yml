@@ -30,6 +30,9 @@ flows:
   - call: foo(f1)
   - (name foos):
     - call: foo(f2)
+    - (on master):
+      - echo foo
+      - echo bar
     - call: foo(f3)
   
   foo:
