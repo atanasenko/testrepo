@@ -6,6 +6,17 @@ tools:
   maven: 3.3.9
   ant: 1.9.7
 
+envs:
+  f1:
+    variables:
+      foo: f1
+  f2:
+    variables:
+      foo: f2
+  f3:
+    variables:
+      foo: f3
+
 flows:
   master0:
   - (on centos):
@@ -16,6 +27,12 @@ flows:
       mvn help:effective-settings
 
   master:
-  - (name foo):
-    - sleep 2
-    - sleep 4
+  - (on centos):
+    - call: foo(f1)
+    - call: foo(f2)
+    - call: foo(f3)
+  
+  foo:
+  - savepoint
+  - echo $foo
+  - sleep 5
