@@ -7,35 +7,13 @@ tools:
   ant: 1.9.7
 
 envs:
-  f1:
+  global:
     variables:
-      foo: f1
-  f2:
-    variables:
-      foo: f2
-  f3:
-    variables:
-      foo: f3
+      oneops.organization: platform
+      oneops.assembly: TestSterlingLooper
+      oneops.environment: QA
 
 flows:
-  master0:
-  - (on centos):
-    - |
-      env
-      ls -la $MAVEN_HOME/bin
-      echo MVN IS `which mvn`
-      mvn help:effective-settings
-
   master:
-  - call: foo(f1)
-  - (name foos):
-    - call: foo(f2)
-    - (on master):
-      - echo foo
-      - echo bar
-    - call: foo(f3)
-  
-  foo:
-  - savepoint
-  - echo $foo
-  - sleep 5
+  - oneops.componentUpdate( attributes = { component = artifact-app, repositoryName = ukgr-snapshot, Version = 1.0.20 })
+
