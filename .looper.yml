@@ -3,17 +3,10 @@ triggers:
   pr: disable
 
 tools:
-  maven: 3.3.9
-  ant: 1.9.7
-
-envs:
-  global:
-    variables:
-      oneops.organization: platform
-      oneops.assembly: TestSterlingLooper
-      oneops.environment: QA
+  nodejs: 6.9.1
+  npm: 3.10.8
 
 flows:
   master:
-  - oneops.componentUpdate( attributes = { component = artifact-app, repositoryName = ukgr-snapshot, Version = 1.0.20 })
+  - npm prefix -g
 
