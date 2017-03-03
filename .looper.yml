@@ -7,6 +7,9 @@ tools:
 #  npm: 3.10.8
 
 flows:
-  master:
-  - npm prefix -g
+  master: |
+    #!/bin/bash
+    which node
+    which npm
+    npm prefix -g
 
