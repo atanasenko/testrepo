@@ -4,7 +4,7 @@ triggers:
 
 tools:
   nodejs: 6.9.1
-  npm: 3.10.8
+#  npm: 3.10.8
 
 flows:
   master:
