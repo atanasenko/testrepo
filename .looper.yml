@@ -12,5 +12,5 @@ flows:
     which node
     which npm
     npm prefix -g
-    npm install -g bower
+    npm install -g --verbose bower
     which bower
