@@ -7,10 +7,18 @@ tools:
 #  npm: 3.10.8
 
 flows:
-  master: |
+  master:
+  - parallel:
+    - call foo
+    - call foo
+    - call foo 
+  - |
     #!/bin/bash
     which node
     which npm
     npm prefix -g
     npm install -g --verbose bower
     which bower
+  foo:
+    (name foo):
+    - sleep 2
