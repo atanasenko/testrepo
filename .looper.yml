@@ -12,13 +12,6 @@ flows:
     - call: foo
     - call: foo
     - call: foo 
-  - |
-    #!/bin/bash
-    which node
-    which npm
-    npm prefix -g
-    npm install -g --verbose bower
-    which bower
   foo:
     (on centos):
     - which node
