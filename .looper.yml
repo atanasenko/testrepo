@@ -21,4 +21,4 @@ flows:
     which bower
   foo:
     (on centos):
-    - sleep 2
+    - which node
