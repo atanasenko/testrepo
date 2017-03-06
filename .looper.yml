@@ -9,9 +9,9 @@ tools:
 flows:
   master:
   - parallel:
-    - call foo
-    - call foo
-    - call foo 
+    - call: foo
+    - call: foo
+    - call: foo 
   - |
     #!/bin/bash
     which node
@@ -20,5 +20,5 @@ flows:
     npm install -g --verbose bower
     which bower
   foo:
-    (name foo):
+    (on centos):
     - sleep 2
