@@ -2,16 +2,12 @@ triggers:
   push: disabled
   pr: disable
 
-tools:
-  nodejs: 6.9.1
-#  npm: 3.10.8
+envs:
+  global:
+    variables:
+      TEST: ENC[QAzSAxdLAHozhF/vo+AN6w==]
 
 flows:
   master:
-  - parallel:
-    - call: foo
-    - call: foo
-    - call: foo 
-  foo:
     (on centos):
-    - which node
+    - echo $TEST
