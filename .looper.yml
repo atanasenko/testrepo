@@ -11,3 +11,10 @@ flows:
   master:
     (on centos):
     - echo $TEST
+  test1(ui Build test1):
+    - echo test1
+  test2(ui Build test2):
+    - echo test2
+  test3(ui Build test3):
+    - echo test3
+    
