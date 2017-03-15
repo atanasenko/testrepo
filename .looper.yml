@@ -9,7 +9,6 @@ envs:
 
 flows:
   master(ui Build test1):
-    (on centos):
     - echo $TEST
   test1(ui Build test2):
     - echo test2
