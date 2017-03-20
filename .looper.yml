@@ -1,6 +1,9 @@
 triggers:
   push: disabled
   pr: disable
+  cron:
+    spec: H/5 * * * *
+    call: test1
 
 envs:
   global:
@@ -9,7 +12,6 @@ envs:
 
 flows:
   master(ui Build test1):
-    - echo $TEST
+    - echo $TEST $test
   test1(ui Build test2):
-    - echo test2
-    
+    - echo test2 $test
