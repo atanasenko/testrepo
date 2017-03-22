@@ -4,7 +4,7 @@ triggers:
   - cron:
       spec: H/5 * * * *
       call: test1
-  - cron: H * * * *
+  - cron: H/7 * * * *
 
 envs:
   global:
