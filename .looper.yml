@@ -5,6 +5,9 @@ triggers:
       spec: H/6 * * * *
       call: test1
   - cron: H/3 * * * *
+  - cron:
+      spec: H 13 * * *
+      timezone: America/Los_Angeles
 
 envs:
   global:
