@@ -2,9 +2,9 @@ triggers:
   - push: disabled
   - pr: disabled
   - cron:
-      spec: H/5 * * * *
+      spec: H/6 * * * *
       call: test1
-  - cron: H/7 * * * *
+  - cron: H/3 * * * *
 
 envs:
   global:
