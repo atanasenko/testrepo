@@ -6,8 +6,8 @@ triggers:
       call: test1
   - cron: H/3 * * * *
   - cron:
-      spec: 5 13 * * *
-      timezone: America/Los_Angeles
+      spec: 12 22 * * *
+      timezone: Europe/Tallinn
 
 envs:
   global:
