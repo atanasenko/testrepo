@@ -15,7 +15,7 @@ envs:
       TEST: ENC[QAzSAxdLAHozhF/vo+AN6w==]
 
 flows:
-  master(ui Build test1, on centos):
+  master(ui Build test1, on master):
     - echo $TEST $test
   test1(ui Build test2):
     - echo test2 $test
