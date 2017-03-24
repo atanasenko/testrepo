@@ -4,7 +4,7 @@ triggers:
   - cron:
       spec: H/6 * * * *
       call: test1
-  - cron: H/3 * * * *
+  - cron: H/3 * * * * tz:Europe/Tallinn
   - cron:
       spec: 12 22 * * *
       timezone: Europe/Tallinn
