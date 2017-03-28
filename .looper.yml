@@ -2,10 +2,6 @@ triggers:
   - push: disabled
   - pr: disabled
   - cron:
-      spec: H/6 * * * *
-      call: test1
-  - cron: H/3 * * * * tz:Europe/Tallinn
-  - cron:
       spec: 08 20 * * *
       timezone: UTC
 
