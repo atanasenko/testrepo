@@ -6,8 +6,8 @@ triggers:
       call: test1
   - cron: H/3 * * * * tz:Europe/Tallinn
   - cron:
-      spec: 12 22 * * *
-      timezone: Europe/Tallinn
+      spec: 08 20 * * *
+      timezone: UTC
 
 envs:
   global:
@@ -15,7 +15,7 @@ envs:
       TEST: ENC[QAzSAxdLAHozhF/vo+AN6w==]
 
 flows:
-  master(ui Build test1, on master):
+  master(ui Build test1):
     - echo $TEST $test
   test1(ui Build test2):
     - echo test2 $test
