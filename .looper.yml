@@ -10,6 +10,9 @@ envs:
     variables:
       TEST: ENC[QAzSAxdLAHozhF/vo+AN6w==]
 
+docker:
+  image: 'alpine:latest'
+
 flows:
   master(ui Build test1):
     - echo $TEST $test
