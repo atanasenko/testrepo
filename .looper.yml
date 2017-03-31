@@ -11,7 +11,7 @@ envs:
       TEST: ENC[QAzSAxdLAHozhF/vo+AN6w==]
 
 docker:
-  image: 'alpine:latest'
+  image: 'openjdk:latest'
 
 flows:
   master(ui Build test1):
