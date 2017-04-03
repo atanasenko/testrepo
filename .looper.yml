@@ -8,7 +8,7 @@ triggers:
 envs:
   global:
     variables:
-      TEST: ENC[QAzSAxdLAHozhF/vo+AN6w==]
+      TEST: woo
 
 docker:
   image: 'java:8-jdk-alpine'
