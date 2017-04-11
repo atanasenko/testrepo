@@ -5,16 +5,18 @@ triggers:
       spec: 12 20 * * *
       timezone: UTC
 
+tools:
+  nodejs: 7.4.0
+  npm: latest
+
 envs:
   global:
     variables:
       TEST: woo
 
-docker:
-  image: 'java:8-jdk-alpine'
-
 flows:
-  master(ui Build test1):
+  master(ui Build test1, on centos):
     - echo $TEST $test
-  test1(ui Build test2):
+    - npm -version
+  test1(ui Build test2, on centos):
     - echo test2 $test
