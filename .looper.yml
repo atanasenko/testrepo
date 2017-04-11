@@ -17,6 +17,7 @@ envs:
 flows:
   master(ui Build test1, on centos):
     - echo $TEST $test
+    - cat $NPM_CONFIG_GLOBALCONFIG
     - npm -version
     - npm config get foo
     - npm config get baz
