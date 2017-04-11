@@ -18,5 +18,8 @@ flows:
   master(ui Build test1, on centos):
     - echo $TEST $test
     - npm -version
+    - npm config get foo
+    - npm config get baz
+    - npm config get _auth
   test1(ui Build test2, on centos):
     - echo test2 $test
