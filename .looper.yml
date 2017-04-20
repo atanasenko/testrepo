@@ -18,5 +18,3 @@ flows:
     - echo $TEST $test
   test1(ui Build test2):
     - echo test2 $test
-    - foo:
-      - bar
