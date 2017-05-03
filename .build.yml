@@ -1,6 +1,7 @@
 triggers:
   - push: disabled
   - pr: disabled
+  - cron:0 10 * * *
 
 tools:
   nodejs:
@@ -15,6 +16,5 @@ flows:
    #- npm pack --loglevel verbose
    - npm config get foo
    - npm config get registry
-   - npm publish
    pr:
    - call: master
