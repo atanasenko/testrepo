@@ -15,7 +15,6 @@ flows:
    #- npm pack --loglevel verbose
    - npm config get foo
    - npm config get registry
-   - npm config get _auth
    - npm publish
    pr:
    - call: master
