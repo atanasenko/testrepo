@@ -2,7 +2,7 @@ triggers:
   - push: disabled
   - pr: disabled
   - cron:
-      spec:0 10 * * *
+      spec: 0 10 * * *
 
 tools:
   nodejs:
