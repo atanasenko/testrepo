@@ -1,0 +1,12 @@
+{
+  "name": "npm_validation_test",
+  "version": "1.0.1",
+  "description": "testing npm publish with looper",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@gecgithub01.walmart.com:devtools-testing/npm_validation.git"
+  },
+  "author": "lbpage",
+  "license": "Walmart"
+}
