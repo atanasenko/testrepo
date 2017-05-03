@@ -1,20 +1,21 @@
 triggers:
   - push: disabled
   - pr: disabled
-  - cron:
-      spec: 12 20 * * *
-      timezone: UTC
 
-envs:
-  global:
-    variables:
-      TEST: woo
-
-docker:
-  image: 'java:8-jdk-alpine'
-
+tools:
+  nodejs:
+    - 7.7.2
+  npm:
+    - 4.1.2
 flows:
-  master(ui Build test1):
-    - echo $TEST $test
-  test1(ui Build test2):
-    - echo test2 $test
+   master:
+   - echo $NPM_CONFIG_GLOBALCONFIG 
+   - cat $NPM_CONFIG_GLOBALCONFIG 
+   - npm install npm_validation@1.0.0
+   #- npm pack --loglevel verbose
+   - npm config get foo
+   - npm config get registry
+   - npm config get _auth
+   - npm publish
+   pr:
+   - call: master
