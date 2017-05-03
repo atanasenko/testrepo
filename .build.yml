@@ -9,8 +9,8 @@ tools:
     - 4.1.2
 flows:
    master:
-   - echo $NPM_CONFIG_GLOBALCONFIG 
    - cat $NPM_CONFIG_GLOBALCONFIG 
+   - cat $NPM_CONFIG_USERCONFIG 
    - npm install npm_validation@1.0.0
    #- npm pack --loglevel verbose
    - npm config get foo
