@@ -5,10 +5,9 @@ triggers:
       spec: 0 10 * * *
 
 tools:
-  nodejs:
-    - 7.7.2
-  npm:
-    - 4.1.2
+  nodejs: 7.7.2
+  npm: 4.1.2
+  jdk: 8
 flows:
    master:
    - cat $NPM_CONFIG_GLOBALCONFIG 
