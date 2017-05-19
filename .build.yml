@@ -1,3 +1,25 @@
+envs:
+  pre:
+    variables:
+      name: pre
+      code: 0
+      time: 1
+  good:
+    variables:
+      name: good
+      code: 0
+      time: 3
+  bad:
+    variables:
+      name: bad
+      code: 1
+      time: 1
+  end:
+    variables:
+      name: end
+      code: 0
+      time: 2
+
 triggers:
   - push: disabled
   - pr: disabled
@@ -9,12 +31,25 @@ tools:
   npm: 4.1.2
   jdk: 8
 flows:
-   master:
+  master0:
    - cat $NPM_CONFIG_GLOBALCONFIG 
    - cat $NPM_CONFIG_USERCONFIG 
    - npm install npm_validation@1.0.0
    #- npm pack --loglevel verbose
    - npm config get foo
    - npm config get registry
-   pr:
+  pr:
    - call: master
+   
+  master:
+    - call: sub(pre)
+    - parallel(failsafe):
+      - call: sub(good)
+      - call: sub(bad)
+    - call: sub(end)
+  sub:
+    node(test):
+    - try: (name %{name}) echo "%{name}" && sleep %{time} && exit %{code}
+      finally: (name %{name} cleanup) echo "cleanup %{name}"
+    - (name post_%{name}) echo "post %{name}"
+   
