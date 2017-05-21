@@ -14,6 +14,11 @@ envs:
       name: bad
       code: 1
       time: 1
+  bad2:
+    variables:
+      name: bad2
+      code: 2
+      time: 2
   end:
     variables:
       name: end
@@ -46,6 +51,7 @@ flows:
     - parallel(failsafe):
       - call: sub(good)
       - call: sub(bad)
+      - call: sub(bad2)
     - call: sub(end)
   sub:
     node(test):
