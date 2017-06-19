@@ -4,6 +4,7 @@ triggers:
 
 tools:
   jdk: 8u121
+  nuget: 4.1.0
 flows:
   pr:
     call: master
