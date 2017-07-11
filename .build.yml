@@ -2,12 +2,13 @@ triggers:
   - push: disabled
   - pr: disabled
 
+env:
+  global:
+    variables:
+      foobar: baz
+
 flows:
   default:
-    parallel:
-      - call: foo
-      - call: foo
-  foo:
-    group(name foo):
-    - echo foo
-    - ping 127.0.0.1 -n 15 > nul
+  - dockerImage:
+      tags:
+      - foo.com/foo/bar:${foobar}.${BUILD_ID}
