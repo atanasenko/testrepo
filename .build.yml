@@ -7,5 +7,5 @@ flows:
     parallel:
       - call: foo
       - call: foo
-  call:
+  foo:
     - ping 127.0.0.1 -n 15 > nul
