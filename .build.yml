@@ -8,4 +8,6 @@ flows:
       - call: foo
       - call: foo
   foo:
+    group(name foo):
+    - echo foo
     - ping 127.0.0.1 -n 15 > nul
