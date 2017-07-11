@@ -2,11 +2,10 @@ triggers:
   - push: disabled
   - pr: disabled
 
-tools:
-  jdk: 8u121
-  nuget: 4.1.0
 flows:
-  pr:
-    call: master
-   
-  master: java -version
+  default:
+    parallel:
+      - call: foo
+      - call: foo
+  call:
+    - ping 127.0.0.1 -n 15 > nul
