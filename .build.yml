@@ -9,6 +9,5 @@ envs:
 
 flows:
   default:
-  - dockerImage:
-      tags:
-      - foo.com/foo/bar:${foobar}.${BUILD_ID}
+  - exposeVars(provider = maven, vars = {PROP_FOO = /properties/foo})
+  - echo "$MAVEN_VERSION $PROP_FOO" 

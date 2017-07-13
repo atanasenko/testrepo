@@ -4,4 +4,9 @@
   <groupId>test</groupId>
   <artifactId>loopertest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+    <foo>bar</foo>
+  </properties>
+
 </project>
