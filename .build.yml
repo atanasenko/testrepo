@@ -2,6 +2,9 @@ triggers:
   - push: disabled
   - pr: disabled
 
+tools:
+  maven: 3.3.9
+
 envs:
   global:
     variables:
