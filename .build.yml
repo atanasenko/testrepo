@@ -5,12 +5,7 @@ triggers:
 tools:
   maven: 3.3.9
 
-envs:
-  global:
-    variables:
-      foobar: baz
-
 flows:
   default:
-  - exposeVars(provider = maven, vars = {PROP_FOO = /properties/foo})
+  - exposeVars(provider = maven, vars = {PROP_FOO = //properties/foo})
   - echo "%MAVEN_VERSION% %PROP_FOO%" 
