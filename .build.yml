@@ -13,4 +13,4 @@ envs:
 flows:
   default:
   - exposeVars(provider = maven, vars = {PROP_FOO = /properties/foo})
-  - echo "$MAVEN_VERSION $PROP_FOO" 
+  - echo "%MAVEN_VERSION% %PROP_FOO%" 
