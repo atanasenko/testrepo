@@ -1,10 +1,10 @@
 flows:
   default:
   - var(foo = bar)
-  - echo "foo=$foo"
+  - echo "foo=%foo%"
   
   - var(foolist = [one, two, three])
-  - echo "foolist=$foolist"
+  - echo "foolist=%foolist%"
   
   - var(foomap = {one = $foo, two = $foolist})
-  - echo "foomap=$foomap"
+  - echo "foomap=%foomap%"
