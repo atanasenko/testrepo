@@ -1,11 +1,10 @@
-triggers:
-  - push: disabled
-  - pr: disabled
-
-tools:
-  maven: 3.3.9
-
 flows:
   default:
-  - exposeVars(provider = maven, vars = {PROP_FOO = //properties/foo})
-  - echo "%MAVEN_VERSION% %PROP_FOO%" 
+  - var(foo = bar)
+  - echo "foo=$foo"
+  
+  - var(foolist = [one, two, three])
+  - echo "foolist=$foolist"
+  
+  - var(foomap = {one = $foo, two = $foolist})
+  - echo "foomap=$foomap"
