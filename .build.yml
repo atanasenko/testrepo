@@ -8,11 +8,14 @@ envs:
 
 flows:
   default:
-  - foreach(one, two, three):
+  - foreach(one, two, three): |
       echo "%key%=%value%"
+      sleep 1
 
-  - foreach($bar):
+  - foreach($bar): |
       echo "%key%=%value%"
+      sleep 1
 
-  - foreach('%{bar.three}'):
+  - foreach('%{bar.three}'): |
       echo "%key%=%value%"
+      sleep 1
