@@ -1,10 +1,18 @@
+envs:
+  global:
+    variables:
+      bar:
+        one: 1
+        two: 2
+        three: [foo, bar]
+
 flows:
   default:
-  - var(foo = bar)
-  - echo "foo=%foo%"
-  
-  - var(foolist = [one, two, three])
-  - echo "foolist=%foolist%"
-  
-  - var(foomap = {one = $foo, two = $foolist})
-  - echo "foomap=%foomap%"
+  - foreach(one, two, three):
+      echo "%key%=%value%"
+
+  - foreach($bar):
+      echo "%key%=%value%"
+
+  - foreach(%{bar.three}):
+      echo "%key%=%value%"
