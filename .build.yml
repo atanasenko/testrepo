@@ -14,5 +14,5 @@ flows:
   - foreach($bar):
       echo "%key%=%value%"
 
-  - foreach(%{bar.three}):
+  - foreach('%{bar.three}'):
       echo "%key%=%value%"
