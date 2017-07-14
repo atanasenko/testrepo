@@ -10,12 +10,12 @@ flows:
   default:
   - foreach(one, two, three): |
       echo "%key%=%value%"
-      sleep 1
+      ping 127.0.0.1 -n 3 > nul
 
   - foreach($bar): |
       echo "%key%=%value%"
-      sleep 1
+      ping 127.0.0.1 -n 3 > nul
 
   - foreach('%{bar.three}'): |
       echo "%key%=%value%"
-      sleep 1
+      ping 127.0.0.1 -n 3 > nul
