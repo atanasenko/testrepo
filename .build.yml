@@ -1,24 +1,13 @@
-envs:
-  global:
-    variables:
-      bar:
-        one: 1
-        two: 2
-        three: [foo, bar]
-
 flows:
   default:
-  - group(loop1):
-      foreachParallel(one, two, three): |
-        echo "%key%=%value%"
-        ping 127.0.0.1 -n 3 > nul
-
-  - group(loop2):
-      foreachParallel($bar): |
-        echo "%key%=%value%"
-        ping 127.0.0.1 -n 3 > nul
-
-  - group(loop3):
-      foreachParallel('%{bar.three}'): |
-        echo "%key%=%value%"
-        ping 127.0.0.1 -n 3 > nul
+    dockerImage:
+      baseDir: 'subdir' # context directory used for root of image sources
+      dockerfile: 'Dockerfile2' # Path within the build context to the Dockerfile
+      pull: true # Attempt to pull the image even if an older image exists locally.
+      noCache: false # Do not use the cache when building the image.
+      rm: true # Remove intermediate containers after a successful build.
+      forceRm: true # Always remove intermediate containers, even upon failure.
+      tags:
+        - 'docker-test.qa.walmart.com/devtools-testing/looper-test:latest'
+      push: false # default true
+      clean: true # cleanup on error or in the end of build
