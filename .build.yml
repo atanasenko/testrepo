@@ -8,14 +8,17 @@ envs:
 
 flows:
   default:
-  - foreachParallel(one, two, three): |
-      echo "%key%=%value%"
-      ping 127.0.0.1 -n 3 > nul
+  - group(loop1):
+      foreachParallel(one, two, three): |
+        echo "%key%=%value%"
+        ping 127.0.0.1 -n 3 > nul
 
-  - foreachParallel($bar): |
-      echo "%key%=%value%"
-      ping 127.0.0.1 -n 3 > nul
+  - group(loop2):
+      foreachParallel($bar): |
+        echo "%key%=%value%"
+        ping 127.0.0.1 -n 3 > nul
 
-  - foreachParallel('%{bar.three}'): |
-      echo "%key%=%value%"
-      ping 127.0.0.1 -n 3 > nul
+  - group(loop3):
+      foreachParallel('%{bar.three}'): |
+        echo "%key%=%value%"
+        ping 127.0.0.1 -n 3 > nul
