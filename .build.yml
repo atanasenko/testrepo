@@ -1,6 +1,8 @@
 flows:
   default:
-    dockerImage:
+  - oneops.transitionVariableUpdate(platform = '${platform}', component = artifact-app, variables = { version = '${version}'})
+  - oneops.environmentCommitAndDeploy(platform = '${platform}', deployAllPlatforms = false)
+  - dockerImage:
       baseDir: 'subdir' # context directory used for root of image sources
       dockerfile: 'Dockerfile2' # Path within the build context to the Dockerfile
       pull: true # Attempt to pull the image even if an older image exists locally.
