@@ -1,7 +1,13 @@
 flows:
   default:
-    - parallel:
-      - something
-      - testStep():
-        - echo foo
-        - echo bar
+  - call: foo(var = one)
+  - call: foo(var = [two, three])
+  - call: foo(var = four)
+  - call: foo(var = [five, six])
+
+  foo:
+    switch($var):
+      case(one): echo 1
+      case(two, three): echo 2,3
+      case(four): echo 4
+      otherwise: echo dunno $var
