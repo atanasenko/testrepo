@@ -2,6 +2,6 @@ flows:
   default:
     - parallel:
       - something
-      - testStep:
+      - testStep():
         - echo foo
         - echo bar
