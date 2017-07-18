@@ -1,19 +1,29 @@
 envs:
   global:
     variables:
-      list:
-      - two
-      - three
+      z: foo
+      env2Name: test_env2
+  test_env1:
+    variables:
+      x: abc
+      y: 123
+      env3:
+        y: 567
+  test_env2:
+    variables:
+      x: xyz
+      y: 345
 flows:
-  default:
-  - call: foo(var = one)
-  - call: foo(var = $list)
-  - call: foo(var = four)
-  - call: foo(var = [five, six])
+  master:
+  - call: test1(test_env1)
 
-  foo:
-    switch($var):
-      case(one): echo 11
-      case(two, three): echo 2,3
-      case(four): echo 4
-      otherwise: echo dunno %var%
+  test1:
+  - shell: echo %{x} $x
+  - call: nested
+  - call: nested($env2Name)
+  - call: nested($env3)
+  - shell: echo %{z} $z
+
+  nested:
+  - shell: echo %{y} $y
+    
