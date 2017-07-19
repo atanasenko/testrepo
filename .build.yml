@@ -7,5 +7,3 @@ envs:
 flows:
   master:
   - testJenkinsGenericStep(stringValue = "v1 = ${TEST_VAL1}", listValues = ["v2 = ${TEST_VAL2}"], mapValues = {testValue = "v3 = ${TEST_VAL3}"})
-  - testStep():
-    - echo foo
