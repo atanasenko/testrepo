@@ -1,9 +1,4 @@
-envs:
-  global:
-    variables:
-      TEST_VAL1: testValue1
-      TEST_VAL2: testValue2
-      TEST_VAL3: testValue3
 flows:
   master:
-  - testJenkinsGenericStep(stringValue = "v1 = ${TEST_VAL1}", listValues = ["v2 = ${TEST_VAL2}"], mapValues = {testValue = "v3 = ${TEST_VAL3}"})
+    - oneops.transitionUpdate(platform = test, component = test, attributes = { module_version = $version })
+    - oneops.environmentCommitAndDeploy(platform = test, deployAllPlatforms = false, cancelActiveDeployment = true )
