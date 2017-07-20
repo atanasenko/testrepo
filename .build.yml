@@ -1,4 +1,4 @@
 flows:
   master:
     - oneops.transitionUpdate(platform = test, component = test, attributes = { module_version = $version })
-    - oneops.environmentCommitAndDeploy(platform = test, deployAllPlatforms = false, cancelActiveDeployment = true )
+    - oneops.environmentVariableUpdate(organization = 'ukgrsps', assembly = '${assembly}', environment = '${environment}', platform = '${platform}', component = artifact-app, variables = artifactId = '${BRANCH_NAME}', repository = 'pangaea_snapshots', version = '1.0.${BUILD_NUMBER}-SNAPSHOT', groupId = 'com.walmart.ukgr.asda-$appname'})
