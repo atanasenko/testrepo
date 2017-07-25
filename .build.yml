@@ -1,4 +1,9 @@
+envs:
+  global:
+    variables:
+      oneops.variables:
+        foo: bar
+
 flows:
   master:
-    - oneops.transitionUpdate(platform = test, component = test, attributes = { module_version = $version })
-    - oneops.environmentVariableUpdate(organization = 'ukgrsps', assembly = '${assembly}', environment = '${environment}', platform = '${platform}', component = artifact-app, variables = artifactId = '${BRANCH_NAME}', repository = 'pangaea_snapshots', version = '1.0.${BUILD_NUMBER}-SNAPSHOT', groupId = 'com.walmart.ukgr.asda-$appname'})
+    - oneops.environmentVariableUpdate(organization = 'ukgrsps', assembly = '${assembly}', environment = '${environment}', platform = '${platform}', component = artifact-app, variables = ${oneops.variables})
