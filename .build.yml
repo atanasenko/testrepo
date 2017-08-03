@@ -1,5 +1,5 @@
 scm:
-  checkoutSubdir: foo
+  checkoutDir: foo
   skipMessage: .*skip.*
 
 flows:
