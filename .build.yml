@@ -1,9 +1,7 @@
-envs:
-  global:
-    variables:
-      oneops.variables:
-        foo: bar
+scm:
+  checkoutSubdir: foo
+  skipMessage: .*skip.*
 
 flows:
   master:
-    - oneops.environmentVariableUpdate(organization = 'ukgrsps', assembly = '${assembly}', environment = '${environment}', platform = '${platform}', component = artifact-app, variables = ${oneops.variables})
+    - echo foo
