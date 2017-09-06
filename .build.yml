@@ -1,7 +1,18 @@
 scm:
   checkoutDir: foo
-  skipMessage: .*skip.*
+
+triggers:
+  push:
+    skipAuthor: 
 
 flows:
   master:
-    - echo foo
+    parallel:
+    - ping 127.0.0.1 -n 20 > nul
+    - ping 127.0.0.1 -n 20 > nul
+    - ping 127.0.0.1 -n 20 > nul
+    - ping 127.0.0.1 -n 20 > nul
+    - ping 127.0.0.1 -n 20 > nul
+    - ping 127.0.0.1 -n 20 > nul
+    - ping 127.0.0.1 -n 20 > nul
+    - ping 127.0.0.1 -n 20 > nul
