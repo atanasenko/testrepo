@@ -1,18 +1,7 @@
-scm:
-  checkoutDir: foo
-
-triggers:
-  push:
-    skipAuthor: 
-
+envs:
+  global:
+    variables:
+      FOO: ENC[F62J7skjXprIwyUZPk9hQA==]
 flows:
   master:
-    parallel:
-    - ping 127.0.0.1 -n 20 > nul
-    - ping 127.0.0.1 -n 20 > nul
-    - ping 127.0.0.1 -n 20 > nul
-    - ping 127.0.0.1 -n 20 > nul
-    - ping 127.0.0.1 -n 20 > nul
-    - ping 127.0.0.1 -n 20 > nul
-    - ping 127.0.0.1 -n 20 > nul
-    - ping 127.0.0.1 -n 20 > nul
+  - echo $FOO
