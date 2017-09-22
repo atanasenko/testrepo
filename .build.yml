@@ -5,4 +5,5 @@ envs:
 flows:
   master:
   - label: foo = $FOO
+  - badge: foobar!
   - echo $FOO
