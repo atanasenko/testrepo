@@ -4,4 +4,5 @@ envs:
       FOO: ENC[F62J7skjXprIwyUZPk9hQA==]
 flows:
   master:
+  - label: foo = $FOO
   - echo $FOO
