@@ -7,3 +7,4 @@ envs:
 flows:
   master:
   - java -version
+  - codegate()
