@@ -1,10 +1,3 @@
-tools:
-  jdk: 6u161-b31
-envs:
-  global:
-    variables:
-      FOO: ENC[F62J7skjXprIwyUZPk9hQA==]
 flows:
   master:
-  - java -version
   - codegate()
