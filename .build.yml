@@ -1,5 +1,3 @@
-tools:
-  jdk: 8
 flows:
   default:
   - codegate()
