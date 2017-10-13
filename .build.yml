@@ -4,20 +4,29 @@ flows:
   default:
   - codegate()
 
-  something(ui test):
-  - try:
-    - call: something2
-    catch:
-    - echo "catch 2 ${flowErrorMessage}"
-    finally:
-    - echo "2 ${flowErrorMessage}"
-
-  something2(ui test2):
-  - echo hello
+  something1(ui test1):
   - try:
     - fail: foo
     catch:
     - echo "catch 1 ${flowErrorMessage}"
     - fail: bar
     finally:
-    - echo "1 ${flowErrorMessage}"
+    - echo "finally 1 ${flowErrorMessage}"
+
+  something2(ui test2):
+  - try:
+    - call: something1
+    catch:
+    - echo "catch 2 ${flowErrorMessage}"
+    finally:
+    - echo "finally 2 ${flowErrorMessage}"
+
+  something3(ui test3):
+  - try:
+    - try:
+      - fail: foobar
+      finally:
+      - echo "finally 3_1 ${flowErrorMessage}"
+    finally:
+    - echo "finally 3_2 ${flowErrorMessage}"
+
