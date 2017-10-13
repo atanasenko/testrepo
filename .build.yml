@@ -3,7 +3,7 @@ flows:
   - codegate()
 
   something(ui test):
-  - try:
+#  - try:
     - echo hello
     - try:
       - fail: foo
@@ -12,5 +12,5 @@ flows:
       - fail: "${flowErrorMessage} bar"
       finally:
       - echo "1 ${flowErrorMessage}"
-    finally:
-    - echo "2 ${flowErrorMessage}"
+#    finally:
+#    - echo "2 ${flowErrorMessage}"
