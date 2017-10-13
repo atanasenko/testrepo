@@ -3,14 +3,17 @@ flows:
   - codegate()
 
   something(ui test):
-#  - try:
-    - echo hello
-    - try:
-      - fail: foo
-      catch:
-      - echo catch
-      - fail: "${flowErrorMessage} bar"
-      finally:
-      - echo "1 ${flowErrorMessage}"
-#    finally:
-#    - echo "2 ${flowErrorMessage}"
+  - try:
+    - call: something2
+    finally:
+    - echo "2 ${flowErrorMessage}"
+
+  something2(ui test2):
+  - echo hello
+  - try:
+    - fail: foo
+    catch:
+    - echo catch
+    - fail: "${flowErrorMessage} bar"
+    finally:
+    - echo "1 ${flowErrorMessage}"
