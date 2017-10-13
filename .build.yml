@@ -9,8 +9,8 @@ flows:
       - exit 1
       catch:
       - echo catch
-      - fail: "$flowError foo"
+      - fail: "$flowErrorMessage foo"
       finally:
-      - echo "1 ${flowError}"
+      - echo "1 ${flowErrorMessage}"
     finally:
-    - echo "2 ${flowError}"
+    - echo "2 ${flowErrorMessage}"
