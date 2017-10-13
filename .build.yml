@@ -1,3 +1,5 @@
+triggers:
+  push: disabled
 flows:
   default:
   - codegate()
@@ -5,6 +7,8 @@ flows:
   something(ui test):
   - try:
     - call: something2
+    catch:
+    - echo "catch 2 ${flowErrorMessage}"
     finally:
     - echo "2 ${flowErrorMessage}"
 
@@ -13,7 +17,7 @@ flows:
   - try:
     - fail: foo
     catch:
-    - echo catch
-    - fail: "${flowErrorMessage} bar"
+    - echo "catch 1 ${flowErrorMessage}"
+    - fail: bar
     finally:
     - echo "1 ${flowErrorMessage}"
