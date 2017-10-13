@@ -6,10 +6,10 @@ flows:
   - try:
     - echo hello
     - try:
-      - exit 1
+      - fail: foo
       catch:
       - echo catch
-      - exit 2
+      - fail: "${flowErrorMessage} bar"
       finally:
       - echo "1 ${flowErrorMessage}"
     finally:
