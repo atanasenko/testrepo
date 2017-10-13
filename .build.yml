@@ -3,3 +3,13 @@ tools:
 flows:
   master:
   - codegate()
+
+  something(ui test):
+  - try:
+    - echo hello
+    - try:
+      - exit 1
+      finally:
+      - echo "1 ${flowError}"
+    finally:
+    - echo "2 ${flowError}"
