@@ -27,6 +27,8 @@ flows:
       - fail: foobar
       finally:
       - echo "finally 3_1 ${flowErrorMessage}"
+    - echo "post 3_1"
     finally:
     - echo "finally 3_2 ${flowErrorMessage}"
+  - echo "post 3_2"
 
