@@ -2,32 +2,4 @@ triggers:
   push: disabled
 flows:
   default:
-  - codegate()
-
-  something1(ui test1):
-  - try:
-    - fail: foo
-    catch:
-    - echo "catch 1 ${flowErrorMessage}"
-    - fail: bar
-    finally:
-    - echo "finally 1 ${flowErrorMessage}"
-
-  something2(ui test2):
-  - try:
-    - call: something1
-    finally:
-    - echo "finally 2 ${flowErrorMessage}"
-
-  something3(ui test3):
-  - try:
-    - try:
-      - fail: foobar
-      - echo "post_fail"
-      finally:
-      - echo "finally 3_1 ${flowErrorMessage}"
-    - echo "post 3_1"
-    finally:
-    - echo "finally 3_2 ${flowErrorMessage}"
-  - echo "post 3_2"
-
+  - codegateSubmit()
