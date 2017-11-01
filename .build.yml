@@ -1,5 +1,11 @@
 triggers:
   push: disabled
+
+tools:
+  android:
+  - tools
+  - build-tools-26.0.0
+
 flows:
   default:
-  - codegateSubmit()
+  - echo foo
