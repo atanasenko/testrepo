@@ -1,5 +1,8 @@
 triggers:
   push: disabled
+  manual:
+    name: run
+    call: default
 
 tools:
   android:
