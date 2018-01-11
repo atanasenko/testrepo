@@ -1,3 +1,6 @@
+tools:
+  jdk: 8u141
+
 envs:
   global:
     variables:
