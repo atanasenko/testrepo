@@ -6,9 +6,7 @@ triggers:
     call: default
 
 tools:
-  android:
-  - tools
-  - build-tools-26.0.0
+  jdk: 8u141
 
 flows:
   default:
