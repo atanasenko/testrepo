@@ -5,11 +5,6 @@ triggers:
     name: run
     call: default
 
-tools:
-  jdk: 8u141
-
 flows:
   default:
   - dependencyCheck.scan
-  - echo foo
-  - sdkmanager --licenses
