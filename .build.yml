@@ -10,5 +10,6 @@ tools:
 
 flows:
   default:
+  - dependencyCheck.scan
   - echo foo
   - sdkmanager --licenses
