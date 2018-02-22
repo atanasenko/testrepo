@@ -1,10 +1,9 @@
 #hello
 triggers:
-  push: disabled
   manual:
     name: run
     call: default
 
 flows:
   default:
-  - dependencyCheck.scan
+  - echo hello world!
