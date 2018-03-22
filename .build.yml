@@ -5,6 +5,11 @@ envs:
   global:
     variables:
       FOO: ENC[F62J7skjXprIwyUZPk9hQA==]
+
+branches:
+- spec: new_branch2
+
 flows:
   master:
   - echo $FOO
+  newBranch:
